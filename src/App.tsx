@@ -1,11 +1,9 @@
 import "./App.css";
-
+import { useGetCurrentUser } from "./store";
+import { ChatPage, LoginPage } from "./components";
 function App() {
-  return (
-    <>
-      <div>start</div>
-    </>
-  );
+  const currentUser = useGetCurrentUser();
+  return <>{currentUser.isAuthorized ? <ChatPage /> : <LoginPage />}</>;
 }
 
 export default App;
