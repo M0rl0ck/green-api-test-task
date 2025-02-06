@@ -1,0 +1,50 @@
+.chats {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 30%;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
+}
+
+.chatsList {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.chat {
+  padding: 5px;
+}
+
+.active {
+  background-color: #b9b9d4;
+}
+
+.newNumber {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 200px;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  gap: 20px;
+}
