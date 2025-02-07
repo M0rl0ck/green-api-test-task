@@ -18,6 +18,12 @@ type TextMessageData = {
     textMessage: string;
   };
 };
+type ExtendedTextMessageData = {
+  typeMessage: "extendedTextMessage";
+  extendedTextMessageData: {
+    text: string;
+  };
+};
 
 type NotificationMessage = {
   typeWebhook:
@@ -28,12 +34,12 @@ type NotificationMessage = {
   timestamp: number;
   idMessage: string;
   senderData: SenderData;
-  messageData: TextMessageData;
+  messageData: TextMessageData | ExtendedTextMessageData;
 };
 
-type Notification = {
+type NotificationType = {
   receiptId: number;
   body: NotificationMessage;
 };
 
-export type { Notification };
+export type { NotificationType };

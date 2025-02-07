@@ -9,5 +9,7 @@ export {
   setCurrentChats,
   useGetCurrentChats,
   useGetChats,
+  addMessage,
 } from "./chatsReducer";
 export type { CurrentUserState } from "./currentUserReducer";
+export type { Message } from "./chatsReducer";

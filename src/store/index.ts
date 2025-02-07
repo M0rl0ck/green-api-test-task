@@ -6,6 +6,7 @@ export {
   useGetCurrentChats,
   useGetChats,
   setCurrentChats,
+  addMessage,
 } from "./reducers";
-export type { CurrentUserState } from "./reducers";
+export type { CurrentUserState, Message } from "./reducers";
 export { store } from "./store";

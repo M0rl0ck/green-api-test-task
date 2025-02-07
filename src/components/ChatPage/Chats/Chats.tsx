@@ -29,7 +29,7 @@ function Chats() {
               dispatch(setCurrentChats(chat.chatId));
             }}
           >
-            {chat.chatName ? chat.chatName : chat.chatId}
+            {chat.chatName.trim() ? chat.chatName : chat.chatId}
           </div>
         ))}
       </div>

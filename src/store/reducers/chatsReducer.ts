@@ -3,8 +3,12 @@ import { useAppSelector } from "../hooks";
 
 type Message = {
   idMessage: string;
+  isIncoming: boolean;
   chatId: string;
+  chatName: string;
   sender: string;
+  senderName: string;
+  timestamp: number;
   textMessage: string;
 };
 type Chat = {
@@ -34,7 +38,7 @@ const chatsSlice = createSlice({
       ) {
         state.chats.push({
           chatId: action.payload,
-          chatName: action.payload,
+          chatName: "",
           messages: [],
         });
       }
@@ -44,11 +48,14 @@ const chatsSlice = createSlice({
         (chat) => chat.chatId === action.payload.chatId
       );
       if (chat) {
+        if (!chat.chatName && action.payload.chatName) {
+          chat.chatName = action.payload.chatName;
+        }
         chat.messages.push(action.payload);
       } else {
         state.chats.push({
           chatId: action.payload.chatId,
-          chatName: action.payload.chatId,
+          chatName: action.payload.chatName,
           messages: [action.payload],
         });
       }
@@ -76,3 +83,5 @@ export {
   useGetCurrentChats,
   useGetChats,
 };
+
+export type { Message };
