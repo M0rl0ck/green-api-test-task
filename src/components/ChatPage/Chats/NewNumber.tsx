@@ -42,6 +42,7 @@ function NewNumber({ onClick }: INewNumberProps) {
           placeholder="Введите номер"
           value={number}
           onChange={handleInput}
+          autoFocus
         />
         <button type="submit" disabled={number.length < 11}>
           Создать

@@ -29,7 +29,7 @@
 }
 
 .active {
-  background-color: #b9b9d4;
+  background-color: var(--background-box);
 }
 
 .newNumber {

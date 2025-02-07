@@ -2,8 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useAppSelector } from "../hooks";
 
 type Message = {
+  idMessage: string;
+  chatId: string;
   sender: string;
-  text: string;
+  textMessage: string;
 };
 type Chat = {
   chatId: string;
@@ -26,7 +28,10 @@ const chatsSlice = createSlice({
   reducers: {
     setCurrentChats: (state, action: PayloadAction<string>) => {
       state.currentChat = action.payload;
-      if (!state.chats.find((chat) => chat.chatId === action.payload)) {
+      if (
+        action.payload.trim() &&
+        !state.chats.find((chat) => chat.chatId === action.payload)
+      ) {
         state.chats.push({
           chatId: action.payload,
           chatName: action.payload,
@@ -34,11 +39,25 @@ const chatsSlice = createSlice({
         });
       }
     },
+    addMessage: (state, action: PayloadAction<Message>) => {
+      const chat = state.chats.find(
+        (chat) => chat.chatId === action.payload.chatId
+      );
+      if (chat) {
+        chat.messages.push(action.payload);
+      } else {
+        state.chats.push({
+          chatId: action.payload.chatId,
+          chatName: action.payload.chatId,
+          messages: [action.payload],
+        });
+      }
+    },
   },
 });
 
 const chatsReducer = chatsSlice.reducer;
-const { setCurrentChats } = chatsSlice.actions;
+const { setCurrentChats, addMessage } = chatsSlice.actions;
 
 const useGetCurrentChats = () => {
   const currentChats = useAppSelector((state) => state.chats.currentChat);
@@ -50,4 +69,10 @@ const useGetChats = () => {
   return chats;
 };
 
-export { chatsReducer, setCurrentChats, useGetCurrentChats, useGetChats };
+export {
+  chatsReducer,
+  setCurrentChats,
+  addMessage,
+  useGetCurrentChats,
+  useGetChats,
+};

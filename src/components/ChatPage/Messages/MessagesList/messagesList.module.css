@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.messagesList {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+
+  overflow-y: auto;
+}
+
+.messagesHeader,
+.messagesFooter {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  height: 50px;
+  background-color: var(--background-box);
+}
+
+.messagesForm {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}

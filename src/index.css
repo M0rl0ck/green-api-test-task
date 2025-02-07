@@ -5,4 +5,7 @@
 }
 
 :root {
+  --background-box: #f0f2f5;
+  --background-box-active: #e8e8e8;
+  --background-message: #f0f2f5;
 }
