@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../../../store";
 import Styles from "./messagesList.module.css";
-import { addMessage } from "../../../../store/reducers/chatsReducer";
+import { sendMessage } from "../../../../API";
+import { useGetCurrentUser } from "../../../../store";
 
 interface MessagesFooterProps {
   chatId: string;
@@ -9,25 +9,20 @@ interface MessagesFooterProps {
 
 function MessagesFooter({ chatId }: MessagesFooterProps) {
   const [text, setText] = useState("");
+
+  const user = useGetCurrentUser();
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
     setText(value);
   };
-  const dispatch = useAppDispatch();
-  const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const message = {
-      textMessage: text,
-      chatId: chatId,
-      sender: chatId,
-      idMessage: Date.now().toString(),
-    };
-    dispatch(addMessage(message));
+    sendMessage(user, chatId, text);
     setText("");
   };
   return (
     <div className={Styles.messagesFooter}>
-      <form action="" onSubmit={sendMessage} className={Styles.messagesForm}>
+      <form action="" onSubmit={handleSubmit} className={Styles.messagesForm}>
         <textarea
           onChange={handleInput}
           value={text}
