@@ -13,7 +13,7 @@ const useGetNotification = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     let isMounted = true;
-    let timeOutId: number;
+    let timeOutId: NodeJS.Timeout;
 
     const deleteNotification = async (
       user: CurrentUserState,
