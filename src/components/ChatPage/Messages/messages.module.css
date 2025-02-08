@@ -1,0 +1,13 @@
+.notSelected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-box);
+}
+
+.notSelected h2 {
+  color: #ccc;
+  font-size: 30px;
+}

@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+:root {
+  --background-box: #f0f2f5;
+  --background-box-hover: #f2f5fa;
+  --background-message: #feffff;
+  --box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  --primary-color: #111b21;
+  --header-height: 70px;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #dbd8d4, #eae6df);
+}
