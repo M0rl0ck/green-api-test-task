@@ -1,0 +1,16 @@
+.button {
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.add {
+  font-size: 14px;
+  border: 2px solid var(--primary-color);
+}

@@ -12,4 +12,4 @@ export {
   addMessage,
 } from "./chatsReducer";
 export type { CurrentUserState } from "./currentUserReducer";
-export type { Message } from "./chatsReducer";
+export type { Message, Chat } from "./chatsReducer";

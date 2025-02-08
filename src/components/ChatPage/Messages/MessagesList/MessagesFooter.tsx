@@ -11,7 +11,7 @@ function MessagesFooter({ chatId }: MessagesFooterProps) {
   const [text, setText] = useState("");
 
   const user = useGetCurrentUser();
-  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setText(value);
   };
@@ -23,12 +23,16 @@ function MessagesFooter({ chatId }: MessagesFooterProps) {
   return (
     <div className={Styles.messagesFooter}>
       <form action="" onSubmit={handleSubmit} className={Styles.messagesForm}>
-        <textarea
+        <input
+          type="text"
           onChange={handleInput}
           value={text}
           placeholder="Введите сообщение"
+          className={Styles.input}
         />
-        <button>Отправить</button>
+        <button type="submit" className={Styles.button}>
+          Отправить
+        </button>
       </form>
     </div>
   );

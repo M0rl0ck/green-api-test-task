@@ -8,5 +8,5 @@ export {
   setCurrentChats,
   addMessage,
 } from "./reducers";
-export type { CurrentUserState, Message } from "./reducers";
+export type { CurrentUserState, Message, Chat } from "./reducers";
 export { store } from "./store";

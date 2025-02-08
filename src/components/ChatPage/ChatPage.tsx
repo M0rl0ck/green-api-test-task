@@ -7,8 +7,10 @@ function ChatPage() {
   useGetNotification();
   return (
     <section className={Styles.container}>
-      <Chats />
-      <Messages />
+      <div className={Styles.wrapper}>
+        <Chats />
+        <Messages />
+      </div>
     </section>
   );
 }

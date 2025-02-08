@@ -2,33 +2,52 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 30%;
-  padding: 10px;
+  width: 40%;
   border-right: 1px solid #ccc;
 }
 
 .header {
   display: flex;
+  height: var(--header-height);
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
   padding-right: 50px;
+  border-bottom: #ccc 1px solid;
 }
 
 .chatsList {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 10px;
   width: 100%;
   height: 100%;
   overflow-y: auto;
 }
 
-.chat {
-  padding: 5px;
+.chatContainer {
+  width: 100%;
+  font-size: 18px;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+  color: var(--primary-color);
+  cursor: pointer;
 }
 
-.active {
+.chatContainer:hover {
+  transition: all 0.3s ease;
+  background-color: var(--background-box-hover);
+}
+
+.chat {
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.active,
+.active:hover {
+  transition: all 0.3s ease;
   background-color: var(--background-box);
 }
 
@@ -37,7 +56,7 @@
   top: 0;
   right: 0;
   left: 0;
-  height: 200px;
+  bottom: 0;
   background-color: #f9f9f9;
   padding: 10px;
 }
@@ -47,4 +66,29 @@
   align-items: center;
   padding-left: 10px;
   gap: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  outline: none;
+}
+
+.form button {
+  margin-left: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
 }

@@ -84,4 +84,4 @@ export {
   useGetChats,
 };
 
-export type { Message };
+export type { Message, Chat };

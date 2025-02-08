@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Styles from "./chats.module.css";
 import { useAppDispatch, setCurrentChats } from "../../../store";
+import { NavigateButton } from "../NavigateButton";
 
 interface INewNumberProps {
   onClick: () => void;
@@ -32,21 +33,24 @@ function NewNumber({ onClick }: INewNumberProps) {
     <div className={Styles.newNumber}>
       <div className={Styles.header}>
         <div className={Styles.title}>
-          <button onClick={onClick}>←</button> <h2>Новый чат</h2>
+          <NavigateButton onClick={onClick}>🡠</NavigateButton>{" "}
+          <h2>Новый чат</h2>
         </div>
       </div>
-      <form action="" onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit} className={Styles.form}>
         <p>Введите номер телефона</p>
-        <input
-          type="text"
-          placeholder="Введите номер"
-          value={number}
-          onChange={handleInput}
-          autoFocus
-        />
-        <button type="submit" disabled={number.length < 11}>
-          Создать
-        </button>
+        <div>
+          <input
+            type="text"
+            placeholder="Введите номер"
+            value={number}
+            onChange={handleInput}
+            autoFocus
+          />
+          <button type="submit" disabled={number.length < 11}>
+            Создать
+          </button>
+        </div>
       </form>
     </div>
   );

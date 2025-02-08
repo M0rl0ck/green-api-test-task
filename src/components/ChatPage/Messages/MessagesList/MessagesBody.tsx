@@ -1,4 +1,5 @@
 import { useGetChats } from "../../../../store";
+import { MessageCard } from "./MessageCard";
 import Styles from "./messagesList.module.css";
 
 function MessagesBody() {
@@ -11,9 +12,7 @@ function MessagesBody() {
   return (
     <div className={Styles.messagesList}>
       {chat.messages.map((message) => (
-        <div className={Styles.message} key={message.idMessage}>
-          <p>{message.textMessage}</p>
-        </div>
+        <MessageCard key={message.idMessage} message={message} />
       ))}
     </div>
   );

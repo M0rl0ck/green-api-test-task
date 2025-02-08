@@ -7,7 +7,7 @@ import Styles from "./messagesList.module.css";
 function MessagesList() {
   const chats = useGetChats();
   const chat = chats.chats.find((chat) => chat.chatId === chats.currentChat);
-  const chatName = chat ? chat.chatName : chats.currentChat;
+  const chatName = chat?.chatName.trim() ? chat.chatName : chats.currentChat;
   return (
     <div className={Styles.container}>
       <MessagesHeader name={chatName} />

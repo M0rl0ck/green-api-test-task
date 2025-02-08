@@ -1,4 +1,5 @@
 import { setCurrentChats, useAppDispatch } from "../../../../store";
+import { NavigateButton } from "../../NavigateButton";
 import Styles from "./messagesList.module.css";
 
 interface MessagesHeaderProps {
@@ -11,8 +12,8 @@ function MessagesHeader({ name }: MessagesHeaderProps) {
   };
   return (
     <div className={Styles.messagesHeader}>
+      <NavigateButton onClick={closeChat}>🡠</NavigateButton>
       <p>{name}</p>
-      <button onClick={closeChat}>←</button>
     </div>
   );
 }

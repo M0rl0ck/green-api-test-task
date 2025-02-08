@@ -38,32 +38,42 @@ function LoginPage() {
   };
   return (
     <div className={Styles.container}>
-      <form action="" onSubmit={handleSubmit}>
-        <input
-          name="idInstance"
-          type="text"
-          placeholder="idInstance"
-          value={formState.idInstance}
-          onChange={handleInput}
-        />
-        <input
-          name="apiTokenInstance"
-          type="text"
-          placeholder="apiTokenInstance"
-          value={formState.apiTokenInstance}
-          onChange={handleInput}
-        />
-        <button
-          type="submit"
-          disabled={!formState.idInstance || !formState.apiTokenInstance}
-        >
-          Log in
-        </button>
-      </form>
-      <p>
-        {!!error && error.message}
-        {isLoading && "Loading..."}
-      </p>
+      <div className={Styles.wrapper}>
+        <p>Для входа в чат введите idInstance и apiTokenInstance</p>
+        <p>
+          Инструкцию для получения idInstance и apiTokenInstance можно найти по{" "}
+          <a href="https://green-api.com/docs/before-start/" target="_blank">
+            ссылке
+          </a>
+          .
+        </p>
+        <form action="" onSubmit={handleSubmit} className={Styles.loginForm}>
+          <input
+            name="idInstance"
+            type="text"
+            placeholder="idInstance"
+            value={formState.idInstance}
+            onChange={handleInput}
+          />
+          <input
+            name="apiTokenInstance"
+            type="text"
+            placeholder="apiTokenInstance"
+            value={formState.apiTokenInstance}
+            onChange={handleInput}
+          />
+          <button
+            type="submit"
+            disabled={!formState.idInstance || !formState.apiTokenInstance}
+          >
+            Войти
+          </button>
+        </form>
+        <div className={Styles.message}>
+          {!!error && <p className={Styles.error}>{error.message}</p>}
+          {isLoading && <p>Loading...</p>}
+        </div>
+      </div>
     </div>
   );
 }

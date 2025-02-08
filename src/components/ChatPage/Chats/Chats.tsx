@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Styles from "./chats.module.css";
 import { NewNumber } from "./NewNumber";
-import { setCurrentChats, useAppDispatch, useGetChats } from "../../../store";
+import { useGetChats } from "../../../store";
+import { NavigateButton } from "../NavigateButton";
+import Chat from "./Chat";
 
 function Chats() {
   const [isVisible, setIsVisible] = useState(false);
-  const dispatch = useAppDispatch();
   const chats = useGetChats();
   const showNewNumber = () => {
     setIsVisible(!isVisible);
@@ -14,23 +15,13 @@ function Chats() {
     <div className={Styles.chats}>
       <div className={Styles.header}>
         <h2>Чаты</h2>
-        <button onClick={showNewNumber}>+</button>
+        <NavigateButton onClick={showNewNumber} type="add">
+          +
+        </NavigateButton>
       </div>
       <div className={Styles.chatsList}>
         {chats.chats.map((chat) => (
-          <div
-            className={
-              chat.chatId === chats.currentChat
-                ? Styles.chat + " " + Styles.active
-                : Styles.chat
-            }
-            key={chat.chatId}
-            onClick={() => {
-              dispatch(setCurrentChats(chat.chatId));
-            }}
-          >
-            {chat.chatName.trim() ? chat.chatName : chat.chatId}
-          </div>
+          <Chat key={chat.chatId} chat={chat} />
         ))}
       </div>
       {isVisible && <NewNumber onClick={showNewNumber} />}
